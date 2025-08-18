@@ -11,11 +11,14 @@ OCI Compute Instance MCP Server
 import os
 import json
 import oci
-from oci.resource_search.models import StructuredSearchDetails
 from mcp.server.fastmcp import FastMCP
 
 # Initialize FastMCP server
-mcp = FastMCP("oci-compute")
+mcp = FastMCP(
+    "oci-compute",
+    host="0.0.0.0",
+    port=8000,
+)
 
 # Get OCI configuration
 profile_name = os.getenv("PROFILE_NAME", "DEFAULT")
